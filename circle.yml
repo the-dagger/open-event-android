@@ -22,4 +22,5 @@ test:
         # run tests  against the emulator.
         - ./gradlew connectedCheck
         - cd .. 
+        - chmod +x upload-apk.sh
         - ./upload-apk.sh
