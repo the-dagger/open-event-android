@@ -10,9 +10,10 @@ dependencies:
 #Replace 
 test:
     override:
+        - cd android
         - (./gradlew assemble -PdisablePreDex):
             timeout: 360
-        - cp -r ${HOME}/${CIRCLE_PROJECT_REPONAME}/app/build/outputs/apk/ $CIRCLE_ARTIFACTS
+        - cp -r ${HOME}/${CIRCLE_PROJECT_REPONAME}/android/app/build/outputs/apk/ $CIRCLE_ARTIFACTS
         - emulator -avd circleci-android22 -no-audio -no-window:
             background: true
             parallel: true
@@ -20,4 +21,5 @@ test:
         - circle-android wait-for-boot
         # run tests  against the emulator.
         - ./gradlew connectedCheck
+        - cd .. 
         - ./upload-apk.sh
