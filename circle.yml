@@ -11,6 +11,8 @@ dependencies:
 test:
     override:
         - cd android
+        - ls
+        - ls ${HOME}/${CIRCLE_PROJECT_REPONAME}/
         - (./gradlew assemble -PdisablePreDex):
             timeout: 360
         - cp -r ${HOME}/${CIRCLE_PROJECT_REPONAME}/android/app/build/outputs/apk/ $CIRCLE_ARTIFACTS
