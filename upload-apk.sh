@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 mkdir $HOME/daily/
-cp -R /home/travis/build/fossasia/open-event-android/android/app/build/outputs/apk/app-fdroid-debug.apk $HOME/daily/
+cp $CIRCLE_ARTIFACTS/apk/app-release-unsigned.apk $HOME/daily/
 # go to home and setup git
 cd $HOME
   git config --global user.email "harshithdwivedi@gmail.com"
